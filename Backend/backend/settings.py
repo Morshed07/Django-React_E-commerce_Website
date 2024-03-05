@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'rest_framework',
 
     ######apps#######
-    'apps.core'
+    'apps.core',
+    'apps.categories',
+    'apps.products',
 ]
 
 MIDDLEWARE = [
