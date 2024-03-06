@@ -5,6 +5,6 @@ from .serializers import ProductSerializer
 
 class ProductListView(APIView):
     def get(self, request):
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('id')[0:10]
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
