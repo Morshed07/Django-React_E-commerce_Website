@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #jazzmin#
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #####added manually#####
+    #####<---added manually--->#####
 
     #####toolkits######
     'rest_framework',
-
+    'corsheaders',
     ######apps#######
     'apps.core',
     'apps.categories',
@@ -57,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #<--------corsheaders--------->
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -142,3 +146,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# <-----jazzmin tweaks----->
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "slate",
+}
+
+#<--------corheaders origin----->
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',  # Your React frontend URL during development
+]
